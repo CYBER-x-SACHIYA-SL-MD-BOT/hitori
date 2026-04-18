@@ -72,13 +72,13 @@ global.mess = {
 	done: "Selesai!"
 }
 
-global.APIs = {
-	naze: 'https://api.naze.biz.id',
-	neosantara: 'https://api.neosantara.xyz/v1',
-}
-global.APIKeys = {
-	'https://api.naze.biz.id': 'YOUR_API_KEY',
-	'https://api.neosantara.xyz/v1': 'API_KEY_NEOSANTARA_AI',
+//global.APIs = {
+	//naze: 'https://api.naze.biz.id',
+	//neosantara: 'https://api.neosantara.xyz/v1',
+//}
+//global.APIKeys = {
+	//'https://api.naze.biz.id': //'YOUR_API_KEY',
+	//'https://api.neosantara.xyz/v1': //'API_KEY_NEOSANTARA_AI',
 }
 
 // Lainnya

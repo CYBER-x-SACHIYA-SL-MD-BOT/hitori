@@ -1,12 +1,6 @@
 process.once('uncaughtException', console.error)
 process.once('unhandledRejection', console.error)
 
-/*
-	* Create By Naze
-	* Follow https://github.com/nazedev
-	* Whatsapp : https://whatsapp.com/channel/0029VaWOkNm7DAWtkvkJBK43
-*/
-
 import './settings.js';
 import fs from 'fs';
 import os from 'os';
@@ -4763,39 +4757,39 @@ Select Bot Settings:
 				await naze.relayMessage(m.chat, db.database[budy.toLowerCase()], {})
 			}
 		}
-	} catch (e) {
-		console.log(e);
-		if (e?.message?.includes('No sessions') || e?.message?.includes('ffmpeg exited with code') || e?.code === 'ERR_FR_MAX_BODY_LENGTH_EXCEEDED' || e?.message?.includes('maxBodyLength limit') || e?.message?.includes('rate-overlimit')) return;
-		const errorKey = e?.code || e?.name || e?.message?.slice(0, 100) || 'unknown_error';
-		const now = Date.now();
-		if (!errorCache[errorKey]) errorCache[errorKey] = [];
-		errorCache[errorKey] = errorCache[errorKey].filter(ts => now - ts < 600000);
-		if (errorCache[errorKey].length >= 3) return;
-		errorCache[errorKey].push(now);
-		const isAxiosError = e?.isAxiosError || !!e?.response; 
-		const statusCode = e?.response?.status || e?.statusCode || e?.data;
-		const errorUrl = e?.config?.url || e?.request?.host || '';
-		if (statusCode === 500) {
-			m.reply('Server API Error: Terjadi gangguan pada server tujuan.');
-		} else if (statusCode === 429) {
-			if (errorUrl.includes('api.naze.biz.id')) {
-				return m.reply('Limit Reached: ' + mess.key);
-			} else m.reply('Limit Reached (Sistem/WA): Terlalu banyak permintaan.\nLog Error Telah dikirim ke Owner');
-		} else if (statusCode === 403) {
-			if (isAxiosError) {
-				if (errorUrl.includes('api.naze.biz.id')) {
-					return m.reply('Akses Khusus Premium!');
-				} else m.reply('API Error: Akses ke server API ditolak (403 Forbidden).');
-			} else console.log(chalk.yellowBright('[SYSTEM] Akses grup ditolak (Baileys 403 / Forbidden).'));
-		} else if (statusCode === 401) {
-			if (isAxiosError) {
-				if (errorUrl.includes('api.naze.biz.id')) {
-					return m.reply('Invalid Apikey!');
-				} else m.reply('API Error: Akses ke server API ditolak (401 Unauthorized).');
-			} else console.log(chalk.yellowBright('[SYSTEM] Akses ditolak (401 Unauthorized).'));
-		} else m.reply('Error: ' + (e?.name || e?.code || e?.message || 'Terjadi kesalahan tidak diketahui') + '\nLog Error Telah dikirim ke Owner\n\n');
-		return naze.sendFromOwner(ownerNumber, `Halo sayang, sepertinya ada yang error nih, jangan lupa diperbaiki ya\n\nVersion : *${require('./package.json').version}*\nType : *${m.type || errorKey}*\n\n*Log error:*\n\n` + util.format(e), m, { contextInfo: { isForwarded: true }})
-	}
-}
+	//} catch (e) {
+//		console.log(e);
+	//	if (e?.message?.includes('No sessions') || e?.message?.includes('ffmpeg exited with code') || e?.code === 'ERR_FR_MAX_BODY_LENGTH_EXCEEDED' || e?.message?.//includes('maxBodyLength limit') || e?.message?.includes('rate-overlimit')) return;
+	//	const errorKey = e?.code || e?.name || e?.message?.slice(0, 100) || 'unknown_error';
+	//	const now = Date.now();
+	//	if (!errorCache[errorKey]) errorCache[errorKey] = [];
+	//	errorCache[errorKey] = errorCache[errorKey].filter(ts => now - ts < 600000);
+	//	if (errorCache[errorKey].length >= 3) return;
+	//	errorCache[errorKey].push(now);
+	//	const isAxiosError = e?.isAxiosError || !!e?.response; 
+//		const statusCode = e?.response?.status || e?.statusCode || e?.data;
+	//	const errorUrl = e?.config?.url || e?.request?.host || '';
+//		if (statusCode === 500) {
+	//		m.reply('Server API Error: Terjadi gangguan pada server tujuan.');
+	//	} else if (statusCode === 429) {
+	//		if (errorUrl.includes('api.naze.biz.id')) {
+	//			return m.reply('Limit Reached: ' + mess.key);
+	//		} else m.reply('Limit Reached (Sistem/WA): Terlalu banyak permintaan.\nLog Error Telah dikirim ke Owner');
+	//	} else if (statusCode === 403) {
+	//		if (isAxiosError) {
+			//	if (errorUrl.includes('api.naze.biz.id')) {
+			//		return m.reply('Akses Khusus Premium!');
+			//	} else m.reply('API Error: Akses ke server API ditolak (403 Forbidden).');
+	//		} else console.log(chalk.yellowBright('[SYSTEM] Akses grup ditolak (Baileys 403 / Forbidden).'));
+	//	} else if (statusCode === 401) {
+		//	if (isAxiosError) {
+		//		if (errorUrl.includes('api.naze.biz.id')) {
+		//			return m.reply('Invalid Apikey!');
+			//	} else m.reply('API Error: Akses ke server API ditolak (401 Unauthorized).');
+	//		} else console.log(chalk.yellowBright('[SYSTEM] Akses ditolak (401 Unauthorized).'));
+	//	} else m.reply('Error: ' + (e?.name || e?.code || e?.message || 'Terjadi kesalahan tidak diketahui') + '\nLog Error Telah dikirim ke Owner\n\n');
+		//return naze.sendFromOwner(ownerNumber, `Halo sayang, sepertinya ada yang error nih, jangan lupa diperbaiki ya\n\nVersion : *${require('./package.json').version}*\nType : *${m.type || errorKey}*\n\n*Log error:*\n\n` + util.format(e), m, { contextInfo: { isForwarded: true }})
+	//}
+//}
 
-export default naze;
+//export default naze;
